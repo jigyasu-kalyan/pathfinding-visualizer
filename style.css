@@ -1,0 +1,46 @@
+:root {
+    --node-size: 25px;
+    --grid-border-color: #ddd;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#grid-container {
+    display: grid;
+    border: 1px solid var(--grid-border-color);
+    width: 90%;
+    margin-top: 20px; 
+}
+
+.node {
+    width: var(--node-size);
+    height: var(--node-size);
+    border-top: 1px solid var(--grid-border-color);
+    border-left: 1px solid var(--grid-border-color);
+    box-sizing: border-box;
+}
+
+/* Node States */
+.node-start { background-color: #4CAF50; }
+.node-end { background-color: #f44336; }
+.node-wall { background-color: #333; }
+.node-visited { animation: visit-animation 0.5s forwards; }
+.node-path { animation: path-animation 1.5s forwards; }
+
+/* Animations */
+@keyframes visit-animation {
+    0% { transform: scale(0.3); background-color: #ffeb3b; border-radius: 100%; }
+    50% { background-color: #2196F3; }
+    75% { transform: scale(1.2); background-color: #673AB7; }
+    100% { transform: scale(1); background-color: #87CEEB; }
+}
+
+@keyframes path-animation {
+    0% { transform: scale(0.6); background-color: #ffeb3b; }
+    100% { transform: scale(1); background-color: #ffeb3b; }
+}
