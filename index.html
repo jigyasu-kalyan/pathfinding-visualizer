@@ -7,11 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pathfinding Visualizer</h1>
-    <div class="controls">
-        <button id="start-btn">Visualize Algorithm!</button>
-        <button id="clear-btn">Clear Board</button>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1>Pathfinding Visualizer</h1>
+        </div>
+        <div class="navbar-controls">
+            <button id="start-btn" class="btn btn-primary">Visualize BFS</button>
+            <button id="clear-board-btn" class="btn">Clear Board</button>
+            <button id="clear-path-btn" class="btn">Clear Path</button>
+        </div>
+    </nav>
+
+    <div id="legend">
+        <div><div class="node-icon node-start"></div> Start Node</div>
+        <div><div class="node-icon node-end"></div> End Node</div>
+        <div><div class="node-icon node-wall"></div> Wall</div>
+        <div><div class="node-icon node-visited"></div> Visited Node</div>
+        <div><div class="node-icon node-path"></div> Path Node</div>
     </div>
+
     <div id="grid-container"></div>
 
     <script src="script.js" defer></script>

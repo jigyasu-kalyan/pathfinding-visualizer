@@ -1,20 +1,85 @@
 :root {
     --node-size: 25px;
     --grid-border-color: #ddd;
+    --navbar-height: 60px;
+    --primary-color: #007bff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
 }
 
 body {
     font-family: sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    height: var(--navbar-height);
+    width: 100%;
+    background-color: var(--dark-gray);
+    color: white;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.navbar-brand h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.navbar-controls button {
+    margin-left: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #6c757d;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #5a6268;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+}
+
+#legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+#legend > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.node-icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
 }
 
 #grid-container {
     display: grid;
-    border: 1px solid var(--grid-border-color);
-    width: 90%;
-    margin-top: 20px; 
+    margin: 0 auto; 
+    border-top: 1px solid #ccc;
 }
 
 .node {
@@ -33,14 +98,19 @@ body {
 .node-path { animation: path-animation 1.5s forwards; }
 
 /* Animations */
+@keyframes wall-animation {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
+}
+
 @keyframes visit-animation {
-    0% { transform: scale(0.3); background-color: #ffeb3b; border-radius: 100%; }
-    50% { background-color: #2196F3; }
-    75% { transform: scale(1.2); background-color: #673AB7; }
-    100% { transform: scale(1); background-color: #87CEEB; }
+    0% { transform: scale(0.3); background-color: #17a2b8; border-radius: 100%; }
+    50% { background-color: #007bff; }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); background-color: #6f42c1; }
 }
 
 @keyframes path-animation {
-    0% { transform: scale(0.6); background-color: #ffeb3b; }
-    100% { transform: scale(1); background-color: #ffeb3b; }
+    0% { transform: scale(0.6); background-color: #ffc107; }
+    100% { transform: scale(1); background-color: #fd7e14; }
 }

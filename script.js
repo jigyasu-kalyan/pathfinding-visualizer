@@ -1,5 +1,7 @@
 const gridContainer = document.getElementById('grid-container');
 const visualizeBtn = document.getElementById('start-btn');
+const clearBoardBtn = document.getElementById('clear-board-btn');
+const clearPathBtn = document.getElementById('clear-path-btn');
 const NODE_SIZE = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--node-size'));
 
 let grid = [];
@@ -161,5 +163,17 @@ function animateShortestPath(nodesInShortestPathOrder) {
 document.addEventListener('mousedown', () => { isMouseDown = true; });
 document.addEventListener('mouseup', () => { isMouseDown = false; });
 visualizeBtn.addEventListener('click', visualizeBFS);
+clearBoardBtn.addEventListener('click', createGrid);
+clearPathBtn.addEventListener('click', () => {
+    for (const row of grid) {
+        for (const node of row) {
+            if (!node.isStart && !node.isEnd && !node.isWall) {
+                node.element.className = 'node';
+                node.distance = Infinity;
+                node.previousNode = null;
+            }
+        }
+    }
+})
 
 createGrid();
